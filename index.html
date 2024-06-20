@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spotify - Music Player</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/utility.css">
+    </head>
+
+    <body>
+        <div class="container flex black">
+            <div class="left">
+                <div class="home grey">
+                    <div class="logo flex items-center space-between"><img class="color-invert" src="svg/logo.svg"
+                            alt="logo" width="100">
+                        <img src="svg/cross.svg" alt="cross" class="cross color-invert">
+                    </div>
+                    <ul>
+                        <li class="flex items-center"><img class="color-invert" src="svg/home.svg" alt="home">Home</li>
+                        <li class="flex items-center"><img class="color-invert" src="svg/search.svg" alt="search">Search
+                        </li>
+                    </ul>
+                </div>
+                <div class="library grey">
+                    <div class="firstlib flex items-center">
+                        <div class="lib flex items-center"><img class="color-invert" src="svg/lib.svg" alt="lib">Your
+                            Library</div>
+                    </div>
+                    <div class="songs">
+                        <div class="songlist">
+                            <ul>
+
+                            </ul>
+                        </div>
+                        <div class="footer">
+                            <div class="links flex">
+                                <div>
+                                    <a href="https://www.spotify.com/in-en/legal/">
+                                        <span>Legal</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://www.spotify.com/in-en/safetyandprivacy/">
+                                        <span>Safety & Privacy Center</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://www.spotify.com/in-en/legal/privacy-policy/">
+                                        <span>Privacy Policy</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://www.spotify.com/in-en/legal/cookies-policy/">
+                                        <span>Cookies</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="links flex">
+                                <div>
+                                    <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3">
+                                        <span>About Ads</span>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://www.spotify.com/in-en/accessibility/">
+                                        <span>Accessibility</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <a href="https://www.spotify.com/legal/cookies-policy/" target="_blank" rel="noopener">
+                                <span>Cookies</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right grey">
+                <div class="header flex items-center">
+                    <div class="header-left flex items-center">
+                        <img src="svg/hamburger.svg" class="color-invert" width="30px" alt="b">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" color="white"
+                            fill="none">
+                            <path d="M15 6C15 6 9.00001 10.4189 9 12C8.99999 13.5812 15 18 15 18" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" color="white"
+                            fill="none">
+                            <path d="M9.00005 6C9.00005 6 15 10.4189 15 12C15 13.5812 9 18 9 18" stroke="currentColor"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </svg>
+                    </div>
+                    <div>
+                        <nav>
+                            <button class="signupbtn">Sign up</button>
+                            <button class="loginbtn">Log in</button>
+                        </nav>
+                    </div>
+                </div>
+                <div class="playlists">
+                    <h1>Spotify Playlists</h1>
+                    <div class="cardContainer flex">
+                    </div>
+                    <div class="playbar">
+                        <div class="playbar-top">
+                            <div class="songinfo"></div>
+                            <div class="songButtons flex justify-center items-center">
+                                <img class="prev color-invert" src="svg/prev.svg" alt="prev">
+                                <img class="pause color-invert" src="svg/songplay.svg" alt="play">
+                                <img class="next color-invert" src="svg/next.svg" alt="next">
+                            </div>
+                            <div class="songtime"></div>
+                        </div>
+                        <div class="seekbar">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+
+</html>
