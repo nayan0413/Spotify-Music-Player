@@ -3,6 +3,7 @@ let currentSong = new Audio();
 let prev = document.querySelector(".prev");
 let play = document.querySelector(".pause");
 let next = document.querySelector(".next");
+let currServer = `http://192.168.82.183:3000`;
 
 async function getSongs(folder) {
     let a = await fetch(`${currServer}/songs/${folder}/`)
@@ -20,7 +21,7 @@ async function getSongs(folder) {
 }
 
 async function getFolders() {
-    let a = await fetch(`http://192.168.82.183:3000/songs/`)
+    let a = await fetch(`${currServer}/songs/`)
     let response = await a.text();
     let div = document.createElement('div');
     div.innerHTML = response;
@@ -53,7 +54,6 @@ const secondsToMinutes = (time) => {
 async function main() {
     let folders = await getFolders();
     for (const fold of folders) {
-        console.log(fold)
         document.querySelector(".cardContainer").innerHTML += `<div class="card">
                             <div class="play">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ async function main() {
     async function spotify() {
         songs = await getSongs(folder);
         let song_ul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
-        currentSong.src = `http://192.168.82.183:3000/songs/${folder}/` + songs[0] + ".mp3";
+        currentSong.src = `${currServer}/songs/${folder}/` + songs[0] + ".mp3";
         let html = "";
         for (const song of songs) {
             html += `<li>
@@ -90,7 +90,7 @@ async function main() {
         Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
             let el = e.getElementsByTagName("div")[1];
             let music = el.getElementsByTagName("div")[0].innerHTML + "-" + el.getElementsByTagName("div")[1].innerHTML + ".mp3";
-            music = `http://192.168.82.183:3000/songs/${folder}/` + music;
+            music = `${currServer}/songs/${folder}/` + music;
             e.addEventListener("click", element => {
                 playMusic(music, folder);
             })
@@ -138,11 +138,11 @@ async function main() {
             }
         }
         if (index > 0) {
-            music = `http://192.168.82.183:3000/songs/${folder}/` + songs[index - 1] + ".mp3";
+            music = `${currServer}/songs/${folder}/` + songs[index - 1] + ".mp3";
             playMusic(music, folder);
         }
         else {
-            music = `http://192.168.82.183:3000/songs/${folder}/` + songs[index] + ".mp3";
+            music = `${currServer}/songs/${folder}/` + songs[index] + ".mp3";
             playMusic(music, folder);
         }
     })
@@ -157,7 +157,7 @@ async function main() {
             }
         }
         if (index < songs.length - 1) {
-            music = `http://192.168.82.183:3000/songs/${folder}/` + songs[index + 1] + ".mp3";
+            music = `${currServer}/songs/${folder}/` + songs[index + 1] + ".mp3";
             playMusic(music, folder);
         }
     })
