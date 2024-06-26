@@ -3,7 +3,7 @@ let currentSong = new Audio();
 let prev = document.querySelector(".prev");
 let play = document.querySelector(".pause");
 let next = document.querySelector(".next");
-let currServer = `http://192.168.82.183:3000`;
+let currServer = `http://192.168.82.183:3000`; //Please copy your local server address here
 
 async function getSongs(folder) {
     let a = await fetch(`${currServer}/songs/${folder}/`)
