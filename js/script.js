@@ -5,6 +5,7 @@ let play = document.querySelector(".pause");
 let next = document.querySelector(".next");
 let currServer = `http://192.168.82.183:3000`;  //Please copy your local server address here
 
+//Returns the songs from the given folder
 async function getSongs(folder) {
     let a = await fetch(`${currServer}/songs/${folder}/`)
     let response = await a.text();
@@ -20,6 +21,7 @@ async function getSongs(folder) {
     return songs;
 }
 
+//Returns all the song folders present
 async function getFolders() {
     let a = await fetch(`${currServer}/songs/`)
     let response = await a.text();
@@ -35,6 +37,7 @@ async function getFolders() {
     return folders;
 }
 
+//Plays the current music
 const playMusic = (music, folder) => {
     document.querySelector(".songinfo").innerHTML = `<div class="name">${music.split("-")[0].split(`/songs/${folder}/`)[1].replaceAll("%20", " ")} - <span>${music.split("-")[1].split(".mp3")[0].replaceAll("%20", " ")}</span></div>`;
     currentSong.src = music;
@@ -72,6 +75,8 @@ async function main() {
     let folder = folders[0];
     folder = folder.replaceAll(" ", "%20");
     let songs;
+
+    //Collects the songs from the present folder and lists them into the library while adding event listeners to eash song
     async function spotify() {
         songs = await getSongs(folder);
         let song_ul = document.querySelector(".songlist").getElementsByTagName("ul")[0];
