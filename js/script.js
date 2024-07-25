@@ -3,7 +3,7 @@ let currentSong = new Audio();
 let prev = document.querySelector(".prev");
 let play = document.querySelector(".pause");
 let next = document.querySelector(".next");
-let currServer = `http://spotifyMusicPlayer-000`;  //Please copy your local server address here (make sure to remove '-' from folder name)
+let currServer = `http://spotifymusicplayer000`;  //Please copy your local server address here (make sure to remove '-' from folder name)
 
 //Returns the songs from the given folder
 async function getSongs(folder) {
